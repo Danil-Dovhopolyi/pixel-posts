@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode } from 'react';
 
 interface FavoritesContextType {
   favorites: Set<number>;
@@ -8,14 +8,14 @@ interface FavoritesContextType {
 }
 
 export const FavoritesContext = createContext<FavoritesContextType | undefined>(
-  undefined,
+  undefined
 );
 
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
 
   const toggleFavorite = (postId: number) => {
-    setFavorites((prev) => {
+    setFavorites(prev => {
       const newFavorites = new Set(prev);
       if (newFavorites.has(postId)) {
         newFavorites.delete(postId);
